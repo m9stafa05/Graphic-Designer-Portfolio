@@ -401,6 +401,18 @@ footer {
     bottom: 20px;
     left: 20px;
   }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .resume-button {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -455,6 +467,14 @@ footer {
     font-size: 1.5rem;
     bottom: 15px;
     left: 15px;
+  }
+
+  .hero-buttons {
+    gap: 0.8rem;
+  }
+
+  .resume-button {
+    padding: 0.8rem 1.5rem;
   }
 }
 
@@ -795,4 +815,33 @@ footer {
 
 .whatsapp-float i {
   color: white;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.resume-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: #2c3e50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover {
+  background: #34495e;
+  transform: translateY(-2px);
+}
+
+.resume-button i {
+  font-size: 1.1rem;
 }
