@@ -175,24 +175,32 @@ const navLinks = document.querySelector('.nav-links');
 const navOverlay = document.querySelector('.nav-overlay');
 const body = document.body;
 
+function closeMenu() {
+  navLinks.classList.remove('active');
+  if (navOverlay) {
+    navOverlay.classList.remove('active');
+  }
+  body.style.overflow = '';
+  menuToggle.classList.remove('active');
+}
+
 menuToggle.addEventListener('click', () => {
   navLinks.classList.toggle('active');
-  navOverlay.classList.toggle('active');
+  if (navOverlay) {
+    navOverlay.classList.toggle('active');
+  }
   body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+  menuToggle.classList.toggle('active');
 });
 
 // Close mobile menu when clicking overlay
-navOverlay.addEventListener('click', () => {
-  navLinks.classList.remove('active');
-  navOverlay.classList.remove('active');
-  body.style.overflow = '';
-});
+if (navOverlay) {
+  navOverlay.addEventListener('click', closeMenu);
+}
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
-    navLinks.classList.remove('active');
-    navOverlay.classList.remove('active');
-    body.style.overflow = '';
+    closeMenu();
   });
-}); 
+});
