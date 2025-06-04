@@ -10,6 +10,9 @@ body {
   font-family: "Poppins", sans-serif;
   line-height: 1.6;
   color: #333;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 .container {
@@ -22,20 +25,27 @@ body {
 nav {
   position: fixed;
   width: 100%;
-  background: #e8e8e882;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1px 2rem;
+  padding: 0 2rem;
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
+  background: #e8e8e882;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0 0 20px 20px;
 }
 
 .logo {
@@ -62,7 +72,7 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: #00b7b7;
+  color: #af0404;
   font-weight: 500;
   transition: color 0.3s ease;
   padding: 0.5rem 1rem;
@@ -252,6 +262,12 @@ nav {
     height: 250px;
     order: -1;
     margin-right: 0;
+  }
+
+  .nav-content {
+    padding: 0.5rem 1rem;
+    height: 70px;
+    border-radius: 0 0 15px 15px;
   }
 }
 
