@@ -72,7 +72,7 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: #af0404;
+  color: #00abd9;
   font-weight: 500;
   transition: color 0.3s ease;
   padding: 0.5rem 1rem;
@@ -628,8 +628,44 @@ nav {
 footer {
   background: #2c3e50;
   color: white;
-  padding: 2rem 0;
+  padding: 1rem 0;
   text-align: center;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+.developer-credit {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.developer-credit a {
+  color: #00b7b7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.developer-credit a:hover {
+  color: #009999;
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 1.5rem 0;
+  }
+
+  .developer-credit {
+    font-size: 0.85rem;
+  }
 }
 
 /* Mobile Menu Button */
