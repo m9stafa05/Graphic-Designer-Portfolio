@@ -384,6 +384,7 @@ nav {
 .projects {
   padding: 100px 0;
   background: #fff;
+  overflow: hidden;
 }
 
 .projects h2 {
@@ -392,10 +393,31 @@ nav {
   color: #2c3e50;
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.projects-scroll-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+}
+
+.projects-track {
+  display: flex;
   gap: 2rem;
+  animation: scroll 40s linear infinite;
+  width: max-content;
+}
+
+.projects-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 2));
+  }
 }
 
 .project-card {
@@ -404,10 +426,12 @@ nav {
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300px;
+  flex-shrink: 0;
 }
 
 .project-image {
-  height: 250px;
+  height: 200px;
   overflow: hidden;
   position: relative;
 }
@@ -439,6 +463,49 @@ nav {
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Add gradient overlays for smooth scrolling effect */
+.projects-scroll-container::before,
+.projects-scroll-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.projects-scroll-container::before {
+  left: 0;
+  background: linear-gradient(to right, #fff, transparent);
+}
+
+.projects-scroll-container::after {
+  right: 0;
+  background: linear-gradient(to left, #fff, transparent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .project-card {
+    width: 280px;
+  }
+
+  .projects-track {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    width: 260px;
+  }
+
+  .projects-track {
+    gap: 1rem;
+  }
 }
 
 /* Contact Section */
