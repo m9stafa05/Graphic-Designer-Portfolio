@@ -288,3 +288,21 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     closeMenu();
   });
 });
+
+// Transparent nav in hero section
+window.addEventListener('scroll', () => {
+  const navContent = document.querySelector('.nav-content');
+  if (window.scrollY < 80) {
+    navContent.classList.add('nav-transparent');
+  } else {
+    navContent.classList.remove('nav-transparent');
+  }
+});
+
+// On page load, set nav transparency
+document.addEventListener('DOMContentLoaded', () => {
+  const navContent = document.querySelector('.nav-content');
+  if (window.scrollY < 80) {
+    navContent.classList.add('nav-transparent');
+  }
+});
